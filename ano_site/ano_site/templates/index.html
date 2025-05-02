@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>ABRAKADABRA!</title>
+</head>
+<body>
+ <main>
+  <img src="{{ user_image_url }}" alt="Аватар пользователя" height="250" />
+            <hr />
+            {% if show_info %}
+            <p>Имя пользователя: {{ user_surname }} {{ user_name }} {{ user_patronymic }}</p>
+            {% if online %}
+            <p>Пользователь сейчас в сети.</p>
+            {% else %}
+            <p>Пользователь был в сети последний раз {{ last_seen }}</p>
+            {% endif %}
+            <p>Пользователь из {{ location }}</p>
+            {% else %}
+            <p>Пользователь скрыл информацию о себе.</p>
+            {% endif %}
+            <hr />
+            <p>Комментарии пользователя</p>
+            {% if show_comments %}
+            <ul>
+                {% for comment in comments %}
+                <li>{{ comment }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>Пользователь скрыл свои комментарии.</p>
+            {% endif %}
+            <hr />
+            <p>Интересы пользователя</p>
+            {% if interests_show %} {% if interests_films_show %}
+            <table border="1">
+                <tr>
+                    <th>Мои любимые фильмы</th>
+                </tr>
+                {% for films in interests_films %}
+                <tr>
+                    <td>{{ films }}</td>
+                    <td>td>
+                </tr>
+                {% endfor %}
+            </table>
+            <br />
+            {% else %}
+            <p>Пользователь скрыл свои любимые фильмы.</p>
+            {% endif %} {% if interests_music_show %}
+            <table border="1">
+                <tr>
+                    <th>Моя любимая музыка</th>
+                </tr>
+                {% for music in interests_music %}
+                <tr>
+                    <td>{{ music }}</td>
+                    <td>10/10</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <br />
+            {% else %}
+            <p>Пользователь скрыл свои любимые фильмы.</p>
+            {% endif %} {% else %}
+            <p>Пользователь скрыл свои интересы.</p>
+            {% endif %}   
+ </main>
+</body>
+</html>

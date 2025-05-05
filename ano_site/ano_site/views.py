@@ -8,7 +8,7 @@ def index_page(request):
         "user_surname": "Иванов",
         "user_patronymic": "Иванович",
         "online": False,
-        "last_seen": "сегодня в 21:12",
+        "last_seen": "сегодня в 21:34",
         "location": "Россия",
         "show_comments": True,
         "comments": [
@@ -29,6 +29,7 @@ def index_page(request):
             "Ну очень классная музыка",
             "Евровидение 2012",
             "Спокойной ночи малыши",
+            "Supermegahit",
         ],
     }
     return render(request, "index.html", context) 
